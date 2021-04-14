@@ -1,6 +1,6 @@
 package com.lmax.disruptor;
 
-@SuppressWarnings("serial")
+@SuppressWarnings({"serial", "lgtm[java/non-sync-override]"})
 public final class TimeoutException extends Exception
 {
     public static final TimeoutException INSTANCE = new TimeoutException();
@@ -11,7 +11,7 @@ public final class TimeoutException extends Exception
     }
 
     @Override
-    public synchronized Throwable fillInStackTrace()
+    public Throwable fillInStackTrace()
     {
         return this;
     }

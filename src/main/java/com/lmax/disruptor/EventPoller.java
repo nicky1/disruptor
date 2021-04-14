@@ -2,6 +2,8 @@ package com.lmax.disruptor;
 
 /**
  * Experimental poll-based interface for the Disruptor.
+ *
+ * @param <T> the type of event used.
  */
 public class EventPoller<T>
 {
@@ -93,7 +95,7 @@ public class EventPoller<T>
             gatingSequence = new FixedSequenceGroup(gatingSequences);
         }
 
-        return new EventPoller<T>(dataProvider, sequencer, sequence, gatingSequence);
+        return new EventPoller<>(dataProvider, sequencer, sequence, gatingSequence);
     }
 
     public Sequence getSequence()
